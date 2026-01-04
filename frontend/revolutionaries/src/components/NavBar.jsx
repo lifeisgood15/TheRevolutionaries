@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
+import { googleLogout } from "@react-oauth/google";
 
-function NavBar(){
-    const navigate = useNavigate();
+function NavBar() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(false);
-  const [searchIp, setSearchIp] = useState('')
+  const [searchIp, setSearchIp] = useState("");
 
   useEffect(() => {
     const userString = localStorage.getItem("user");
@@ -15,9 +16,6 @@ function NavBar(){
     }
   }, [navigate]);
 
-  
-
-  
   const goToHome = () => {
     navigate("/");
   };
@@ -31,10 +29,10 @@ function NavBar(){
   };
 
   const logoutUser = () => {
-    localStorage.removeItem("user");
+    googleLogout();
     navigate("/login");
   };
-    return (
+  return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light mx-1">
         <button
@@ -59,14 +57,11 @@ function NavBar(){
           <ul className="navbar-nav navbar-right">
             {user || true ? (
               <>
-                
-                
                 <li className="nav-item ml-5 logout-btn">
                   <button className="nav-link" onClick={logoutUser}>
                     Logout <span className="sr-only"></span>
                   </button>
                 </li>
-
               </>
             ) : (
               <li className="nav-item ml-5">
