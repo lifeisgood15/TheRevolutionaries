@@ -1,25 +1,45 @@
-import { PopupModal } from "react-calendly";
 import { useState } from "react";
+import FindInterviewer from "./FindInterviewer";
 function BookMock() {
-  const [openModal, setOpenModal] = useState(false);
-  const [prefill, setPrefill] = useState(false);
+  const [viewBookInt, setViewBookInt] = useState(true);
+  const [viewAvailability, setViewAvailability] = useState(false);
 
   return (
     <>
-      <button
-        type="button"
-        class="btn btn-outline-primary m-3 p-2"
-        onClick={() => setOpenModal(true)}
-      >
-        Book a mock
-      </button>
-      <PopupModal
-        url="https://calendly.com/acmesales"
-        prefill={prefill}
-        onModalClose={() => setOpenModal(true)}
-        open={openModal}
-        rootElement={document.getElementById("root")}
-      />
+      <div class="card p-1 m-2">
+        <div class="card-body">
+          <h5 class="card-title">Mock Interviews</h5>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                onClick={() => {
+                  setViewBookInt(true);
+                  setViewAvailability(false);
+                }}
+              >
+                Book interview
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                onClick={() => {
+                  setViewBookInt(false);
+                  setViewAvailability(true);
+                }}
+              >
+                Set your availability
+              </a>
+            </li>
+          </ul>
+
+          <div className="book-mock">{viewBookInt && <FindInterviewer />}</div>
+        </div>
+      </div>
     </>
   );
 }
