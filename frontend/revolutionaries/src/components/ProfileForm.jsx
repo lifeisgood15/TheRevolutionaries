@@ -5,13 +5,13 @@ import {
   validateName,
   validatePassword,
 } from "../commonJS/auth";
-import PhoneInput from "react-phone-number-input";
 function ProfileForm({
   nameInput,
   emailInput,
   rollNoInput,
   phoneInput,
   programInput,
+  calendlyLinkInput,
 }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
@@ -29,6 +29,7 @@ function ProfileForm({
       rollNoInput,
       phoneInput,
       programInput,
+      calendlyLinkInput,
     });
   }, [nameInput]);
   const handleChange = (e) => {
@@ -174,6 +175,21 @@ function ProfileForm({
             <div className="text-danger">Invalid program.</div>
           )}
         </div>
+        <div className="form-group mx-5 my-2">
+          <label htmlFor="nameInput">Calendly Link</label>
+          <input
+            type="text"
+            className="form-control"
+            id="calendlyLinkInput"
+            name="calendlyLinkInput"
+            placeholder="https://calendly.com/acmesales"
+            value={formData.calendlyLinkInput}
+            onChange={handleChange}
+          />
+          {validationErrors.phoneInput && (
+            <div className="text-danger">Invalid Phone Number.</div>
+          )}
+        </div>
         {/* <div className="form-group mx-5 y-5">
           <label htmlFor="passwordInput">
             Password (length 8, must contain a number and special character)
@@ -192,10 +208,10 @@ function ProfileForm({
         </div> */}
         <button
           type="submit"
-          className="btn btn-primary submit-button my-2 mx-5"
+          className="btn btn-light submit-button btn-lg btn-block my-2 mx-5"
           onClick={handleRegister}
         >
-          Register
+          Submit
         </button>
       </form>
     </>

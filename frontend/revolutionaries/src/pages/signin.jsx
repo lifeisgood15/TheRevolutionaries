@@ -7,11 +7,10 @@ import ProfileForm from "../components/ProfileForm";
 function SignIn() {
   const navigate = useNavigate();
   const [gLogin, setGLogin] = useState(false);
-  const [displayForm, setDisplayForm] = useState(false);
   const onSuccessGoogleLogin = (credentialResponse) => {
     console.log("cred response", jwtDecode(credentialResponse.credential));
     setGLogin(jwtDecode(credentialResponse.credential));
-    setDisplayForm(true);
+    // Send email ID to backend, get session token
     navigate("/");
   };
   const onErrorGoogleLogin = () => {
@@ -41,12 +40,6 @@ function SignIn() {
                         text="continue_with"
                         shape="pill"
                         width={400}
-                      />
-                    )}
-                    {gLogin && displayForm && (
-                      <ProfileForm
-                        nameInput={gLogin.given_name + " " + gLogin.family_name}
-                        emailInput={gLogin.email}
                       />
                     )}
                   </div>
