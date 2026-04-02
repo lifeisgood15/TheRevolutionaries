@@ -34,43 +34,56 @@ function NavBar() {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mx-1">
-        <button
-          className="navbar-brand btn btn-outline-light hobbit-logo"
-          onClick={goToHome}
-        >
-          Revolutionaries
-        </button>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav navbar-right">
-            {user || true ? (
-              <>
-                <li className="nav-item ml-5 logout-btn">
-                  <button className="nav-link" onClick={logoutUser}>
-                    Logout <span className="sr-only"></span>
-                  </button>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item ml-5">
-                <button className="nav-link" onClick={goToLogin}>
-                  Login <span className="sr-only"></span>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button
+            className="navbar-brand btn btn-outline-light"
+            onClick={goToHome}
+          >
+            Revolutionaries
+          </button>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <button
+                  className="nav-link"
+                  onClick={() => navigate("/profile")}
+                >
+                  Profile
                 </button>
               </li>
-            )}
-          </ul>
+            </ul>
+            <div class="d-flex">
+              <ul className="navbar-nav navbar-right">
+                {user || true ? (
+                  <>
+                    <li className="nav-item me-2 logout-btn">
+                      <button className="nav-link" onClick={logoutUser}>
+                        Logout <span className="sr-only"></span>
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <li className="nav-item me-2">
+                    <button className="nav-link" onClick={goToLogin}>
+                      Login <span className="sr-only"></span>
+                    </button>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
     </>

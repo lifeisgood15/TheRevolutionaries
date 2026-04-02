@@ -73,21 +73,21 @@ function ProfileForm({
         email: formData.emailInput,
         password: formData.passwordInput,
       };
-      const response = await fetch("http://localhost:8000/user/register-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-      const responseData = await response.json();
-      console.log(responseData);
-      if (responseData.error) {
-        alert(responseData.error);
-      } else {
-        localStorage.setItem("user", JSON.stringify(responseData));
-        navigate("/");
-      }
+      // const response = await fetch("http://localhost:8000/user/register-user", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(payload),
+      // });
+      // const responseData = await response.json();
+      // console.log(responseData);
+      // if (responseData.error) {
+      //   alert(responseData.error);
+      // } else {
+      //   localStorage.setItem("user", JSON.stringify(responseData));
+      //   navigate("/");
+      // }
     }
   };
 

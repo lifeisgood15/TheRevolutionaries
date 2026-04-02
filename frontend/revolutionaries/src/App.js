@@ -6,6 +6,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SignIn from "./pages/signin";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Profile from "./components/Profile";
 
 const CLIENT_ID =
   "1016394680240-98kq7vttjc3478jcm38mpapfcm6s2n6a.apps.googleusercontent.com";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </GoogleOAuthProvider>
     </BrowserRouter>

@@ -42,7 +42,8 @@ function FindInterviewer() {
       program: "PGDM 2025",
       workExp: "2 Years / Analyst",
       expertise: "Consulting, Data",
-      calendlyUrl: "https://calendly.com/shailypandey/30min",
+      calendlyUrl:
+        "https://calendly.com/shailypandey/30min?name=Shaily%20Pandey&email=pgpsm11031@iiml.ac.in",
       rating: 4.9,
     },
   ];
@@ -112,7 +113,6 @@ function FindInterviewer() {
                                   type="button"
                                   class="btn btn-outline-primary m-3 p-2"
                                   onClick={(e) => {
-                                    console.log(interviewer);
                                     setOpenModal(true);
                                     setSelectedInterviewer(interviewer);
                                   }}
